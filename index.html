@@ -5,42 +5,262 @@
   <title>ShailTechzone</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-
-<link rel="stylesheet" type="text/css" href="main.css">
-<link rel="stylesheet" type="text/css" href="style.css">
-
-
-
   
+  <style>
+  :root {
+	 --black: #2b3137;
+	 --white: #fff;
+	 --off-white: #f0f0f0;
+	 --gray: #394047;
+	 --light-gray: #6b7885;
+	 --light-blue: #4bc6e9;
+	 --lightest-gray: #bec8d2;
+	 --trans-blue: rgba(75, 198, 233, .1);
+	 --faded: #f6fbff;
+	 --bg: var(--faded);
+	 --component-bg: var(--black);
+	 --component-subtle: var(--lightest-gray);
+	 --component-color: var(--white);
+	 --component-border: var(--gray);
+	 --component-radius: 1rem;
+}
+ html {
+	 box-sizing: border-box;
+	 font-size: 62.5%;
+}
+ *, *:before, *:after {
+	 box-sizing: inherit;
+}
+ html, body {
+	 width: 100%;
+	 height: 100%;
+}
+ body {
+	 font-family: 'Inter UI', system-ui;
+	 font-size: 1.6rem;
+	 background: var(--bg);
+}
+ .wrapper {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-direction: column;
+	 height: 100%;
+}
+ button, input, select, textarea {
+	 font-family: inherit;
+	 background: transparent;
+	 border: 0;
+}
+ a {
+	 color: inherit;
+}
+ .sidebar {
+	 background: var(--component-bg);
+	 color: var(--component-color);
+	 width: 100%;
+	 max-width: 300px;
+	 border-radius: var(--component-radius);
+	 transition: all 200ms ease;
+	 box-shadow: 0px 5px 12px rgba(0, 0, 0, .1), 0px 3px 6px rgba(0, 0, 0, .06);
+}
+ .sidebar__profile {
+	 margin-bottom: 2.5rem;
+}
+ .sidebar__header, .sidebar__body {
+	 padding: 2.1rem;
+}
+ .sidebar__header {
+	 border-bottom: 1px solid var(--component-border);
+}
+ .sidebar--mini {
+	 max-width: 73px;
+	 transition: all 200ms ease;
+}
+ .sidebar--mini .menu__icon {
+	 margin: 0;
+}
+ .sidebar--mini .theme-btn {
+	 width: 30px;
+	 height: 30px;
+	 border: 0;
+}
+ .sidebar--mini .theme-btn__label {
+	 display: none;
+}
+ .profile {
+	 display: flex;
+	 align-items: center;
+}
+ .profile__avatar {
+	 height: 30px;
+	 width: 30px;
+	 border-radius: 50%;
+	 margin-right: 2rem;
+}
+ .profile__name {
+	 color: var(--component-subtle);
+	 font-weight: 700;
+	 animation: fade 300ms ease forwards;
+}
+ .input {
+	 width: 100%;
+	 border: 2px solid var(--component-border);
+	 border-radius: var(--component-radius);
+	 padding: 1.5rem 2.5rem;
+	 color: inherit;
+	 background: rgba(0, 0, 0, .1);
+	 transition: all 150ms ease;
+}
+ .input:focus, .input:active {
+	 outline: 0;
+	 background: transparent;
+	 box-shadow: 0px 0px 5px var(--light-blue);
+	 transition: all 150ms ease;
+}
+ .menu__item {
+	 cursor: pointer;
+	 display: flex;
+	 align-items: center;
+	 border-radius: 0.5rem;
+	 margin: 0 0 2rem 0;
+	 box-shadow: 0px 0px 0px 1rem rgba(255, 255, 255, 0);
+	 text-decoration: none;
+	 transition: all 200ms ease;
+}
+ .menu__item:hover, .menu__item:focus {
+	 color: inherit;
+	 background: var(--trans-blue);
+	 box-shadow: 0px 0px 0px 1rem var(--trans-blue);
+	 transition: all 200ms ease;
+}
+ .menu__item:hover .menu__icon, .menu__item:focus .menu__icon {
+	 color: var(--light-blue);
+}
+ .menu__item:hover .menu__title, .menu__item:focus .menu__title {
+	 color: inherit;
+}
+ .menu__icon {
+	 width: 30px;
+	 height: 30px;
+	 margin-right: 2rem;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 color: var(--light-gray);
+}
+ .menu__title {
+	 color: var(--component-subtle);
+	 animation: fade 300ms ease forwards;
+}
+ @keyframes fade {
+	 from {
+		 opacity: 0;
+	}
+	 to {
+		 opacity: 1;
+	}
+}
+ .button {
+	 padding: 1rem 1.5rem;
+	 background: linear-gradient(to top, var(--black), var(--gray));
+	 color: var(--white);
+	 border-radius: 0.3rem;
+	 cursor: pointer;
+	 box-shadow: 0px 3px 6px rgba(0, 0, 0, .15);
+	 text-shadow: 0px 1px 1px rgba(0, 0, 0, .2);
+}
+ .button:hover {
+	 opacity: 0.7;
+}
+ .button:focus, .button:active {
+	 outline: 0;
+}
+ .button:focus {
+	 outline: 4px solid var(--trans-blue);
+}
+ .button--light {
+	 background: linear-gradient(to top, var(--off-white), var(--white));
+	 color: var(--gray);
+}
+ .button--primary {
+	 background: var(--light-blue);
+	 color: var(--white);
+}
+ .buttons {
+	 display: flex;
+	 width: 100%;
+	 max-width: 300px;
+	 margin: 2rem 0 2rem;
+	 justify-content: center;
+}
+ .buttons .button {
+	 display: block;
+	 width: 49%;
+}
+ .theme-btn {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 cursor: pointer;
+	 border-radius: 0.5rem;
+	 padding: 0.5rem 0;
+	 border: 1px solid var(--component-border);
+	 color: var(--light-blue);
+	 transition: all 200ms ease;
+}
+ .theme-btn:hover, .theme-btn:focus {
+	 background: var(--trans-blue);
+	 box-shadow: 0px 0px 0px 1rem var(--trans-blue);
+	 transition: all 100ms ease;
+}
+ .theme-btn__label {
+	 margin-left: 1rem;
+	 animation: fade 300ms ease forwards;
+}
+ .theme-btn__icon {
+	 transition: all 200ms ease;
+	 animation: fade 300ms ease forwards;
+}
+ 
   
-  <div class="header"></div>
-  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-  <label for="openSidebarMenu" class="sidebarIconToggle">
-    <div class="spinner diagonal part-1"></div>
-    <div class="spinner horizontal"></div>
-    <div class="spinner diagonal part-2"></div>
-  </label>
-  <div id="sidebarMenu">
-    <ul class="sidebarMenuInner">
-      <li>SahilTechzone <span>Official YouTube App</span></li>
-      <li><a href="https://latesttechnewstechupdates.blogspot.com" target="_blank">Website</a></li>
-      <li><a href="https://www.instagram.com/sahiltechzone" target="_blank">Instagram</a></li>
-      <li><a href="https://vm.tiktok.com/GN56m5/" target="_blank">TicTok</a></li>
-      <li><a href="https://www.youtube.com/sahiltechzone" target="_blank">YouTube Sahiltechzone </a></li>
-      <li><a href="https://www.youtube.com/c/TechQnA" target="_blank">YouTube   TechQnA </a></li>
-	   <li><a href="log.html" target="_blank">Login With Google </a></li>
-      <li><a href="#" target="_blank">Virsion 1.2 </a></li>
-    </ul>
-  </div>
+  </style>
+  
+<div class="wrapper">
+    <div class="buttons"><button class="button button--primary" id="miniButton">Toggle Size</button></div>
+    <div class="sidebar">
+        <div class="sidebar__header">
+            <div class="profile sidebar__profile"><img class="profile__avatar" src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg" />
+                <div class="profile__name">Pk Technicazone</div>
+            </div>
+            <div class="theme-btn" id="themeButton"><i class="theme-btn__icon" data-feather="moon"></i><span class="theme-btn__label">Night mode</span></div>
+        </div>
+        <div class="sidebar__body">
+            <div class="menu sidebar__menu">
+                <a class="menu__item" href="#">
+                    <div class="menu__icon"><i data-feather="youtube"></i></div>
+                    <div class="menu__title">Tech Videos</div>
+                </a>
+                <a class="menu__item" href="#">
+                    <div class="menu__icon"><i data-feather="file-text"></i></div>
+                    <div class="menu__title">Tech News</div>
+                </a>
+                <a class="menu__item" href="#">
+                    <div class="menu__icon"><i data-feather="instagram"></i></div>
+                    <div class="menu__title">instagram</div>
+                </a>
+                <a class="menu__item" href="#">
+                    <div class="menu__icon"><i data-feather="facebook"></i></div>
+                    <div class="menu__title">Teams</div>
+                </a>
+                <a class="menu__item" href="#">
+                    <div class="menu__icon"><i data-feather="twitter"></i></div>
+                    <div class="menu__title">Settings</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div><script src="/main.js"></script>
 
- <div> 
-<iframe src="https://www.youtube.com/c/TechQnA" height="1920" width="1280"></iframe>
-</div>
-
-<center>
 
 
-</footer>
-
- </body>
-  </head>

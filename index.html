@@ -1,266 +1,110 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>ShailTechzone</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-  
-  <style>
-  :root {
-	 --black: #2b3137;
-	 --white: #fff;
-	 --off-white: #f0f0f0;
-	 --gray: #394047;
-	 --light-gray: #6b7885;
-	 --light-blue: #4bc6e9;
-	 --lightest-gray: #bec8d2;
-	 --trans-blue: rgba(75, 198, 233, .1);
-	 --faded: #f6fbff;
-	 --bg: var(--faded);
-	 --component-bg: var(--black);
-	 --component-subtle: var(--lightest-gray);
-	 --component-color: var(--white);
-	 --component-border: var(--gray);
-	 --component-radius: 1rem;
-}
- html {
-	 box-sizing: border-box;
-	 font-size: 62.5%;
-}
- *, *:before, *:after {
-	 box-sizing: inherit;
-}
- html, body {
-	 width: 100%;
-	 height: 100%;
-}
- body {
-	 font-family: 'Inter UI', system-ui;
-	 font-size: 1.6rem;
-	 background: var(--bg);
-}
- .wrapper {
-	 display: flex;
-	 justify-content: center;
-	 align-items: center;
-	 flex-direction: column;
-	 height: 100%;
-}
- button, input, select, textarea {
-	 font-family: inherit;
-	 background: transparent;
-	 border: 0;
-}
- a {
-	 color: inherit;
-}
- .sidebar {
-	 background: var(--component-bg);
-	 color: var(--component-color);
-	 width: 100%;
-	 max-width: 300px;
-	 border-radius: var(--component-radius);
-	 transition: all 200ms ease;
-	 box-shadow: 0px 5px 12px rgba(0, 0, 0, .1), 0px 3px 6px rgba(0, 0, 0, .06);
-}
- .sidebar__profile {
-	 margin-bottom: 2.5rem;
-}
- .sidebar__header, .sidebar__body {
-	 padding: 2.1rem;
-}
- .sidebar__header {
-	 border-bottom: 1px solid var(--component-border);
-}
- .sidebar--mini {
-	 max-width: 73px;
-	 transition: all 200ms ease;
-}
- .sidebar--mini .menu__icon {
-	 margin: 0;
-}
- .sidebar--mini .theme-btn {
-	 width: 30px;
-	 height: 30px;
-	 border: 0;
-}
- .sidebar--mini .theme-btn__label {
-	 display: none;
-}
- .profile {
-	 display: flex;
-	 align-items: center;
-}
- .profile__avatar {
-	 height: 30px;
-	 width: 30px;
-	 border-radius: 50%;
-	 margin-right: 2rem;
-}
- .profile__name {
-	 color: var(--component-subtle);
-	 font-weight: 700;
-	 animation: fade 300ms ease forwards;
-}
- .input {
-	 width: 100%;
-	 border: 2px solid var(--component-border);
-	 border-radius: var(--component-radius);
-	 padding: 1.5rem 2.5rem;
-	 color: inherit;
-	 background: rgba(0, 0, 0, .1);
-	 transition: all 150ms ease;
-}
- .input:focus, .input:active {
-	 outline: 0;
-	 background: transparent;
-	 box-shadow: 0px 0px 5px var(--light-blue);
-	 transition: all 150ms ease;
-}
- .menu__item {
-	 cursor: pointer;
-	 display: flex;
-	 align-items: center;
-	 border-radius: 0.5rem;
-	 margin: 0 0 2rem 0;
-	 box-shadow: 0px 0px 0px 1rem rgba(255, 255, 255, 0);
-	 text-decoration: none;
-	 transition: all 200ms ease;
-}
- .menu__item:hover, .menu__item:focus {
-	 color: inherit;
-	 background: var(--trans-blue);
-	 box-shadow: 0px 0px 0px 1rem var(--trans-blue);
-	 transition: all 200ms ease;
-}
- .menu__item:hover .menu__icon, .menu__item:focus .menu__icon {
-	 color: var(--light-blue);
-}
- .menu__item:hover .menu__title, .menu__item:focus .menu__title {
-	 color: inherit;
-}
- .menu__icon {
-	 width: 30px;
-	 height: 30px;
-	 margin-right: 2rem;
-	 display: flex;
-	 align-items: center;
-	 justify-content: center;
-	 color: var(--light-gray);
-}
- .menu__title {
-	 color: var(--component-subtle);
-	 animation: fade 300ms ease forwards;
-}
- @keyframes fade {
-	 from {
-		 opacity: 0;
-	}
-	 to {
-		 opacity: 1;
-	}
-}
- .button {
-	 padding: 1rem 1.5rem;
-	 background: linear-gradient(to top, var(--black), var(--gray));
-	 color: var(--white);
-	 border-radius: 0.3rem;
-	 cursor: pointer;
-	 box-shadow: 0px 3px 6px rgba(0, 0, 0, .15);
-	 text-shadow: 0px 1px 1px rgba(0, 0, 0, .2);
-}
- .button:hover {
-	 opacity: 0.7;
-}
- .button:focus, .button:active {
-	 outline: 0;
-}
- .button:focus {
-	 outline: 4px solid var(--trans-blue);
-}
- .button--light {
-	 background: linear-gradient(to top, var(--off-white), var(--white));
-	 color: var(--gray);
-}
- .button--primary {
-	 background: var(--light-blue);
-	 color: var(--white);
-}
- .buttons {
-	 display: flex;
-	 width: 100%;
-	 max-width: 300px;
-	 margin: 2rem 0 2rem;
-	 justify-content: center;
-}
- .buttons .button {
-	 display: block;
-	 width: 49%;
-}
- .theme-btn {
-	 display: flex;
-	 align-items: center;
-	 justify-content: center;
-	 cursor: pointer;
-	 border-radius: 0.5rem;
-	 padding: 0.5rem 0;
-	 border: 1px solid var(--component-border);
-	 color: var(--light-blue);
-	 transition: all 200ms ease;
-}
- .theme-btn:hover, .theme-btn:focus {
-	 background: var(--trans-blue);
-	 box-shadow: 0px 0px 0px 1rem var(--trans-blue);
-	 transition: all 100ms ease;
-}
- .theme-btn__label {
-	 margin-left: 1rem;
-	 animation: fade 300ms ease forwards;
-}
- .theme-btn__icon {
-	 transition: all 200ms ease;
-	 animation: fade 300ms ease forwards;
-}
- 
-  
-  </style>
-  
-<div class="wrapper">
-    <div class="buttons"><button class="button button--primary" id="miniButton">Toggle Size</button></div>
-    <div class="sidebar">
-        <div class="sidebar__header">
-            <div class="profile sidebar__profile"><img class="profile__avatar" src="https://tinyfac.es/data/avatars/475605E3-69C5-4D2B-8727-61B7BB8C4699-500w.jpeg" />
-                <div class="profile__name">Pk Technicazone</div>
-            </div>
-            <div class="theme-btn" id="themeButton"><i class="theme-btn__icon" data-feather="moon"></i><span class="theme-btn__label">Night mode</span></div>
-        </div>
-        <div class="sidebar__body">
-            <div class="menu sidebar__menu">
-                <a class="menu__item" href="#">
-                    <div class="menu__icon"><i class="fa fa-user"></i></div>
-                    <div class="menu__title">Tech Videos</div>
-                </a>
-                <a class="menu__item" href="#">
-                    <div class="menu__icon"><i data-feather="file-text"></i></div>
-                    <div class="menu__title">Tech News</div>
-                </a>
-                <a class="menu__item" href="#">
-                    <div class="menu__icon"><i data-feather="instagram"></i></div>
-                    <div class="menu__title">instagram</div>
-                </a>
-                <a class="menu__item" href="#">
-                    <div class="menu__icon"><i data-feather="facebook"></i></div>
-                    <div class="menu__title">Teams</div>
-                </a>
-                <a class="menu__item" href="#">
-                    <div class="menu__icon"><i data-feather="twitter"></i></div>
-                    <div class="menu__title">Settings</div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div><script src="/main.js"></script>
-
-
-
+    <html>
+    <head>
+      <meta charset='utf-8'>
+      <meta name='viewport' content='width=device-width'>
+      <title>Privacy Policy</title>
+      <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
+    </head>
+    <body>
+    <strong>Privacy Policy</strong> <p>
+                  Caresofts &amp; Sentricuss built the Edu Meet app as
+                  a Free app. This SERVICE is provided by
+                  Caresofts &amp; Sentricuss at no cost and is intended for use as
+                  is.
+                </p> <p>
+                  This page is used to inform visitors regarding our
+                  policies with the collection, use, and disclosure of Personal
+                  Information if anyone decided to use our Service.
+                </p> <p>
+                  If you choose to use our Service, then you agree to
+                  the collection and use of information in relation to this
+                  policy. The Personal Information that we collect is
+                  used for providing and improving the Service. We will not use or share your information with
+                  anyone except as described in this Privacy Policy.
+                </p> <p>
+                  The terms used in this Privacy Policy have the same meanings
+                  as in our Terms and Conditions, which is accessible at
+                  Edu Meet unless otherwise defined in this Privacy Policy.
+                </p> <p><strong>Information Collection and Use</strong></p> <p>
+                  For a better experience, while using our Service, we
+                  may require you to provide us with certain personally
+                  identifiable information, including but not limited to email address , physical address , contact information. The information that
+                  we request will be retained by us and used as described in this privacy policy.
+                </p> <div><p>
+                    The app does use third party services that may collect
+                    information used to identify you.
+                  </p> <p>
+                    Link to privacy policy of third party service providers used
+                    by the app
+                  </p> <ul><li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li><li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank" rel="noopener noreferrer">AdMob</a></li><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></ul></div> <p><strong>Log Data</strong></p> <p>
+                  We want to inform you that whenever you
+                  use our Service, in a case of an error in the app
+                  we collect data and information (through third party
+                  products) on your phone called Log Data. This Log Data may
+                  include information such as your device Internet Protocol
+                  (“IP”) address, device name, operating system version, the
+                  configuration of the app when utilizing our Service,
+                  the time and date of your use of the Service, and other
+                  statistics.
+                </p> <p><strong>Cookies</strong></p> <p>
+                  Cookies are files with a small amount of data that are
+                  commonly used as anonymous unique identifiers. These are sent
+                  to your browser from the websites that you visit and are
+                  stored on your device's internal memory.
+                </p> <p>
+                  This Service does not use these “cookies” explicitly. However,
+                  the app may use third party code and libraries that use
+                  “cookies” to collect information and improve their services.
+                  You have the option to either accept or refuse these cookies
+                  and know when a cookie is being sent to your device. If you
+                  choose to refuse our cookies, you may not be able to use some
+                  portions of this Service.
+                </p> <p><strong>Service Providers</strong></p> <p>
+                  We may employ third-party companies and
+                  individuals due to the following reasons:
+                </p> <ul><li>To facilitate our Service;</li> <li>To provide the Service on our behalf;</li> <li>To perform Service-related services; or</li> <li>To assist us in analyzing how our Service is used.</li></ul> <p>
+                  We want to inform users of this Service
+                  that these third parties have access to your Personal
+                  Information. The reason is to perform the tasks assigned to
+                  them on our behalf. However, they are obligated not to
+                  disclose or use the information for any other purpose.
+                </p> <p><strong>Security</strong></p> <p>
+                  We value your trust in providing us your
+                  Personal Information, thus we are striving to use commercially
+                  acceptable means of protecting it. But remember that no method
+                  of transmission over the internet, or method of electronic
+                  storage is 100% secure and reliable, and we cannot
+                  guarantee its absolute security.
+                </p> <p><strong>Links to Other Sites</strong></p> <p>
+                  This Service may contain links to other sites. If you click on
+                  a third-party link, you will be directed to that site. Note
+                  that these external sites are not operated by us.
+                  Therefore, we strongly advise you to review the
+                  Privacy Policy of these websites. We have
+                  no control over and assume no responsibility for the content,
+                  privacy policies, or practices of any third-party sites or
+                  services.
+                </p> <p><strong>Children’s Privacy</strong></p> <p>
+                  These Services do not address anyone under the age of 13.
+                  We do not knowingly collect personally
+                  identifiable information from children under 13. In the case
+                  we discover that a child under 13 has provided
+                  us with personal information, we immediately
+                  delete this from our servers. If you are a parent or guardian
+                  and you are aware that your child has provided us with
+                  personal information, please contact us so that
+                  we will be able to do necessary actions.
+                </p> <p><strong>Changes to This Privacy Policy</strong></p> <p>
+                  We may update our Privacy Policy from
+                  time to time. Thus, you are advised to review this page
+                  periodically for any changes. We will
+                  notify you of any changes by posting the new Privacy Policy on
+                  this page.
+                </p> <p>This policy is effective as of 2020-07-02</p> <p><strong>Contact Us</strong></p> <p>
+                  If you have any questions or suggestions about our
+                  Privacy Policy, do not hesitate to contact us at info.caresofts@gmail.com.
+                </p>
+    </body>
+    </html>
+      
